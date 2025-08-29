@@ -1,0 +1,36 @@
+# --- Unity ---
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+[Aa]rtifacts/
+[Ii]L2CPPBuildCache/
+[Aa]sset[Ss]tore/
+[Bb]in/
+[Uu]ser[Ss]ettings/
+
+# --- IDEs / Editor ---
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.user
+*.unityproj
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# --- SO ---
+.DS_Store
+Thumbs.db
+
+# Importante: sí versionar estas carpetas/archivos:
+# Assets/ (incluye *.meta), Packages/, ProjectSettings/

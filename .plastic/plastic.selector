@@ -1,0 +1,3 @@
+repository "proyecto motores1/proyecto motores1@4674119124728@cloud"
+  path "/"
+    smartbranch "/main/prueba1"
