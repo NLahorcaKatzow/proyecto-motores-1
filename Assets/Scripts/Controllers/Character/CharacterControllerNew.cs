@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CharacterMovement3D : MonoBehaviour
+public class CharactrControllerNew : MonoBehaviour
 {
     public float walkSpeed = 5f;
     public float runSpeed = 10f;
