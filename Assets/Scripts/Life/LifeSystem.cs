@@ -19,5 +19,16 @@ public class LifeSystem : MonoBehaviour
     {
         life++;
     }
+    public int GetLife()
+    {
+       return life;
+    }
+    public void Die()
+    {
+        if (life <=0)
+        {
+           
+        }
+    }
 
 }
