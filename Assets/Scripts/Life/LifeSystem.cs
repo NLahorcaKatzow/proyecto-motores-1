@@ -9,14 +9,18 @@ public class LifeSystem : MonoBehaviour
         life = 3;
     }
 
+
     
     public void LoseLife()
     {
         life--;
+        if (life <= 0) Die();
     }
 
-    public void WinLife()
+    public void AddLife()
     {
+        if (life == 3) return;
+          
         life++;
     }
     public int GetLife()
@@ -25,10 +29,8 @@ public class LifeSystem : MonoBehaviour
     }
     public void Die()
     {
-        if (life <=0)
-        {
-           
-        }
+        //To do Scene Manager Muerte
+      
     }
 
 }
