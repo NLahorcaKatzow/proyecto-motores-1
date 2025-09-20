@@ -16,6 +16,7 @@
 .vs/
 .vscode/
 .idea/
+.plastic/
 *.csproj
 *.sln
 *.user

@@ -20,7 +20,7 @@ public class EnemyCollider : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             colliders.Remove(other);
-            enemy.RemovePlayer();
+           //enemy.RemovePlayer();
         }
     }
 }
