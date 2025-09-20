@@ -2,7 +2,7 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
     public float health;
-    public float speed;
+    public float velocity;
     public float attackDamage;
     public int attackRange;
     public float attackCooldown;
@@ -20,6 +20,7 @@ public class EnemyBase : MonoBehaviour
     public virtual void Die()
     {
         //TODO: Add die animation
+        
         Debug.Log("Enemy died");
         //TODO: Add die sound
         //TODO: send die event

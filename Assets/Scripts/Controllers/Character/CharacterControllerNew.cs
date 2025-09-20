@@ -10,7 +10,7 @@ public class CharacterControllerNew : MonoBehaviour
     private CharacterController controller;
     private Vector3 velocity;
     private bool isGrounded;
-
+    public LayerMask floorMask;
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -18,7 +18,7 @@ public class CharacterControllerNew : MonoBehaviour
 
     void Update()
     {
-        // Verifica si está tocando el suelo
+        // Verifica si estï¿½ tocando el suelo
         isGrounded = controller.isGrounded;
         if (isGrounded && velocity.y < 0)
         {
@@ -32,7 +32,7 @@ public class CharacterControllerNew : MonoBehaviour
         // Determina si corre o camina
         float speed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
 
-        // Calcula dirección de movimiento en base a la orientación del jugador
+        // Calcula direcciï¿½n de movimiento en base a la orientaciï¿½n del jugador
         Vector3 move = transform.right * horizontal + transform.forward * vertical;
         controller.Move(move * speed * Time.deltaTime);
 
