@@ -14,7 +14,7 @@ public class EnemyCQC : EnemyBase
         navMeshAgent = GetComponent<NavMeshAgent>();
         if (navMeshAgent != null)
         {
-            navMeshAgent.speed = speed;
+            navMeshAgent.speed = velocity;
         }
     }
 
@@ -23,22 +23,28 @@ public class EnemyCQC : EnemyBase
     {
         if(player == null) return;
 
-        if(Vector3.Distance(transform.position, nextPosition) > deltaMovimiento)
+        var rotVector = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+        
+        transform.LookAt(rotVector);
+        
+        
+        if(Vector3.Distance(player.transform.position, nextPosition) > deltaMovimiento)
         {
             transform.DOKill();
-            transform.DOMove(nextPosition, deltaMovimiento).SetEase(Ease.Linear);
-            nextPosition = MoveToPlayer();
+            transform.DOMove(nextPosition, Vector3.Distance(player.transform.position, this.transform.position) / velocity).SetEase(Ease.Linear);
+            nextPosition = CalculateNextMovement();
         }
         
-        
+        InAttackRange();
     }
     
-    public Vector3 MoveToPlayer()
+    public Vector3 CalculateNextMovement()
     {
         if (player == null || navMeshAgent == null)
         {
             return transform.position;
         }
+        
         
         Vector3 targetPosition = player.transform.position;
         
@@ -52,7 +58,7 @@ public class EnemyCQC : EnemyBase
             // Return the next position to move to (first corner of the path)
             if (path.corners.Length > 1)
             {
-                return path.corners[1]; // Next waypoint
+                return new Vector3(path.corners[1].x, transform.position.y, path.corners[1].z); // Next waypoint
             }
         }
         
@@ -60,6 +66,13 @@ public class EnemyCQC : EnemyBase
         return transform.position;
     }
     
+    internal void InAttackRange()
+    {
+        if(Vector3.Distance(player.transform.position, this.transform.position) <= attackRange)
+        {
+            AttackPlayer();
+        }
+    }
     
     public override void Die()
     {
@@ -69,5 +82,13 @@ public class EnemyCQC : EnemyBase
         //TODO: send die event
         //TODO: destroy enemy
     }
+    
+    
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(nextPosition, 0.1f);
+    }
+    
     
 }
