@@ -8,6 +8,7 @@ public class EnemyCQC : EnemyBase
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float deltaMovimiento = 0.1f;
     public Vector3 nextPosition;
+    public float visualRange = 10f;
     
     void Start()
     {
@@ -71,6 +72,10 @@ public class EnemyCQC : EnemyBase
         if(Vector3.Distance(player.transform.position, this.transform.position) <= attackRange)
         {
             AttackPlayer();
+        }
+        if(Vector3.Distance(player.transform.position, this.transform.position) > visualRange)
+        {
+            player = null;
         }
     }
     
