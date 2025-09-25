@@ -1,9 +1,9 @@
 using UnityEngine;
-
+using System.Linq;
 public class CharacterCombatNew : MonoBehaviour
 {
     public float attackRange = 1.5f;      // Radio de ataque
-    public int attackDamage = 20;         // Daño por golpe
+    public int attackDamage = 20;         // Daï¿½o por golpe
     public float attackRate = 2f;         // Ataques por segundo
     public LayerMask enemyLayers;         // Capa de enemigos
 
@@ -25,14 +25,14 @@ public class CharacterCombatNew : MonoBehaviour
 
     void Attack()
     {
-        // Activar animación 
+        // Activar animaciï¿½n 
         if (animator != null)
             animator.SetTrigger("Attack"); // TODO: IMPLEMETNACION DE ANIMACIONES DE ATTACK
 
-        // Detectar enemigos en el área de ataque
+        // Detectar enemigos en el ï¿½rea de ataque
         Collider[] hitEnemies = Physics.OverlapSphere(transform.position + transform.forward, attackRange, enemyLayers);
 
-        // Aplicar daño
+
         foreach (Collider enemy in hitEnemies)
         {
             EnemyBase enemyHealth = enemy.GetComponent<EnemyBase>();
@@ -43,7 +43,7 @@ public class CharacterCombatNew : MonoBehaviour
         }
     }
 
-    // Para visualizar el área de ataque en la escena
+    // Para visualizar el ï¿½rea de ataque en la escena
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
