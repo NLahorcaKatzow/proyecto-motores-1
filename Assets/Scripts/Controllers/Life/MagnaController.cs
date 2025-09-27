@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class HealWithMana : MonoBehaviour
+public class MagnaController : MonoBehaviour
 {
-    public HealthController healthController; // Arrastra tu objeto con HealthController acá
+   
     public float mana = 100f;                 // Valor actual del mana
     public float maxMana = 100f;              // Valor máximo del mana
     public float manaCost = 33f;              // Costo para curar (33%)
@@ -18,15 +18,19 @@ public class HealWithMana : MonoBehaviour
 
     void HealPlayer()
     {
-        // Curamos 1 punto de vida
-        healthController.Heal(1);
+        if (mana >= manaCost)
+        {
+            // Curamos 1 punto de vida
+            HealthController.Instance.Heal(1);
 
-        // Consumimos mana
-        mana -= manaCost;
+            // Consumimos mana
+            mana -= manaCost;
 
-        // Aseguramos que no baje de 0
-        if (mana < 0) mana = 0;
-    }
+            // Aseguramos que no baje de 0
+            if (mana < 0) mana = 0;
+
+        }
+        }
 
     // Método para recuperar mana (Al matar enemigos)
     public void AddMana(float amount)
