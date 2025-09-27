@@ -4,6 +4,7 @@ using DG.Tweening;
 public class EnemyCQC : EnemyBase
 {
     private NavMeshAgent navMeshAgent;
+    private bool canAttack = true;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float deltaMovimiento = 0.1f;
@@ -69,9 +70,9 @@ public class EnemyCQC : EnemyBase
     
     internal void InAttackRange()
     {
-        if(Vector3.Distance(player.transform.position, this.transform.position) <= attackRange)
+        if(Vector3.Distance(player.transform.position, this.transform.position) <= attackRange && canAttack)
         {
-            AttackPlayer();
+            AttackPlayerWithCooldown();
         }
         if(Vector3.Distance(player.transform.position, this.transform.position) > visualRange)
         {
@@ -87,7 +88,22 @@ public class EnemyCQC : EnemyBase
         //TODO: send die event
         //TODO: destroy enemy
     }
-    
+    private void AttackPlayerWithCooldown()
+    {
+        if (!canAttack) return;
+        
+        // Perform the attack
+        AttackPlayer();
+        
+        // Start cooldown
+        canAttack = false;
+        
+        // Use DOTween to handle the cooldown timing
+        DOTween.To(() => 0f, x => { }, 1f, attackCooldown)
+            .OnComplete(() => {
+                canAttack = true;
+            });
+    }
     
     private void OnDrawGizmos()
     {
