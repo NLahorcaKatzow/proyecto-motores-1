@@ -389,11 +389,12 @@ MonoBehaviour:
   health: 10
   velocity: 2
   attackDamage: 1
-  attackRange: 0
+  attackRange: 2
   attackCooldown: 2
   player: {fileID: 0}
   deltaMovimiento: 0.6
   nextPosition: {x: 0, y: 0, z: 0}
+  visualRange: 10
 --- !u!65 &891568253
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -413,7 +414,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.5, y: 1, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &891568254
 MeshRenderer:
@@ -624,7 +625,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1842922070}
   - component: {fileID: 1842922069}
-  - component: {fileID: 1842922071}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -712,18 +712,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &1842922071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1842922068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1970215338
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,7 +778,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 4.45, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1970215342
 MeshFilter:
