@@ -4,12 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Enemy
+  - Pause Button
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Enemy
+  - 
   - Water
   - UI
   - 

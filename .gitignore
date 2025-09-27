@@ -16,7 +16,6 @@
 .vs/
 .vscode/
 .idea/
-.plastic/
 *.csproj
 *.sln
 *.user
@@ -28,7 +27,6 @@
 *.mdb
 *.opendb
 *.VC.db
-*.wktree
 
 # --- SO ---
 .DS_Store
