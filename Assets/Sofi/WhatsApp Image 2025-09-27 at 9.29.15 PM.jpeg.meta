@@ -126,9 +126,9 @@ TextureImporter:
       name: WhatsApp Image 2025-09-27 at 9.29.15 PM_0
       rect:
         serializedVersion: 2
-        x: 70
-        y: 64
-        width: 209
+        x: 71
+        y: 65
+        width: 207
         height: 165
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -138,8 +138,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 141fcf7a7b3f10840bef2b49261bec2d
-      internalID: 1632616440
+      spriteID: 710e7719aa26a8345867b76622612500
+      internalID: -1864314294
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9f9ad81a48b4907489b397d492ba90f1
+    spriteID: edbf1c057a41c65458353c8f33ace2dd
     internalID: 0
     vertices: []
     indices: 
@@ -158,7 +158,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      WhatsApp Image 2025-09-27 at 9.29.15 PM_0: 1632616440
+      WhatsApp Image 2025-09-27 at 9.29.15 PM_0: -1864314294
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
