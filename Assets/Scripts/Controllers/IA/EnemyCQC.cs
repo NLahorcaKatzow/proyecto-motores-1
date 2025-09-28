@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 using DG.Tweening;
+using Utilities;
 public class EnemyCQC : EnemyBase
 {
     private NavMeshAgent navMeshAgent;
@@ -98,11 +100,11 @@ public class EnemyCQC : EnemyBase
         // Start cooldown
         canAttack = false;
         
-        // Use DOTween to handle the cooldown timing
-        DOTween.To(() => 0f, x => { }, 1f, attackCooldown)
-            .OnComplete(() => {
-                canAttack = true;
-            });
+        // Use DOTweenTimer utility to handle the cooldown timing
+        DOTweenTimer.CreateTimer(attackCooldown, () =>
+        {
+            canAttack = true;
+        });
     }
     
     private void OnDrawGizmos()
