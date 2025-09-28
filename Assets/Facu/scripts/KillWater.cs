@@ -8,7 +8,7 @@ public class KillWater : MonoBehaviour
         // Verifica si el objeto que entra al trigger tiene el tag "Player"
         if (other.CompareTag("Player"))
         {
-            //HealthController.instance.TakeDamage(3) // daño al jugador
+            HealthController.Instance.TakeDamage(3); // daï¿½o al jugador
         }
     }
 }
