@@ -265,6 +265,7 @@ MonoBehaviour:
   m_Cameras: []
   m_RendererIndex: -1
   m_VolumeLayerMask:
+    serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
@@ -623,24 +624,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1875973890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1875973877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdfcad84d082a3547bc2b0905bad8a4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRange: 1.7
-  attackDamage: 20
-  attackRate: 2
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!1 &2029556378
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,10 +769,6 @@ PrefabInstance:
       value: -0.019556284
       objectReference: {fileID: 0}
     - target: {fileID: 6538045998697014770, guid: 88ca7f97d5f37484494da73d877ddef9, type: 3}
-      propertyPath: attackRate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6538045998697014770, guid: 88ca7f97d5f37484494da73d877ddef9, type: 3}
       propertyPath: attackRange
       value: 1.7
       objectReference: {fileID: 0}
@@ -844,9 +823,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1628657333142089156, guid: 88ca7f97d5f37484494da73d877ddef9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1875973883}
-    - targetCorrespondingSourceObject: {fileID: 1628657333142089156, guid: 88ca7f97d5f37484494da73d877ddef9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1875973890}
   m_SourcePrefab: {fileID: 100100000, guid: 88ca7f97d5f37484494da73d877ddef9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

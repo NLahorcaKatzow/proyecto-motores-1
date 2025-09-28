@@ -2,59 +2,53 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-    public static HealthController Instance { get; private set; }
+    public static HealthController Instance;
+    public int currentHealth = 3;
+    public int maxHealth = 3;
 
-    [SerializeField] private int currentHealth = 3;
-    [SerializeField] private int maxHealth = 3;
 
-    public int CurrentHealth
+    void Awake()
     {
-        get { return currentHealth; }
-        private set { currentHealth = Mathf.Clamp(value, 0, maxHealth); }
-    }
-
-    public int MaxHealth
-    {
-        get { return maxHealth; }
-        set { maxHealth = Mathf.Max(1, value); } // Evitamos que la vida máxima sea menor a 1
-    }
-
-    private void Awake()
-    {
-        // Si ya existe una instancia, destruimos este objeto para evitar duplicados
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
         Instance = this;
-        DontDestroyOnLoad(gameObject); // Mantiene el objeto al cambiar de escena
-        CurrentHealth = maxHealth;     // Al iniciar, vida llena
     }
 
     public void TakeDamage(int damage = 1)
     {
-        CurrentHealth -= damage;
-        if (CurrentHealth <= 0)
+        currentHealth -= damage;
+        if (currentHealth <= 0)
         {
             Die();
         }
     }
-
+    
     public void Heal(int amount = 1)
     {
-        CurrentHealth += amount;
+        currentHealth += amount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
     }
-
+    
     public void ResetHealth()
     {
-        CurrentHealth = maxHealth;
+        currentHealth = maxHealth;
+    }
+    
+    public int getCurrentHealth()
+    {
+        return currentHealth;
+    }
+    
+    public int getMaxHealth()
+    {
+        return maxHealth;
     }
 
     public void Die()
     {
         //TODO: Implementar la muerte del personaje
-        //TODO: Implementar SceneManager, UI de muerte
+        //TODO: Implementar escene manager, ui de muerte
     }
+
 }
