@@ -1,9 +1,9 @@
 using UnityEngine;
-
+using System;
 public class HealthController : MonoBehaviour
 {
     public static HealthController Instance { get; private set; }
-
+    public event Action<int> onHealthChanged;
     [SerializeField] private int currentHealth = 3;
     [SerializeField] private int maxHealth = 3;
 
@@ -16,7 +16,7 @@ public class HealthController : MonoBehaviour
     public int MaxHealth
     {
         get { return maxHealth; }
-        set { maxHealth = Mathf.Max(1, value); } // Evitamos que la vida máxima sea menor a 1
+        set { maxHealth = Mathf.Max(1, value); } // Evitamos que la vida mï¿½xima sea menor a 1
     }
 
     private void Awake()
@@ -36,6 +36,7 @@ public class HealthController : MonoBehaviour
     public void TakeDamage(int damage = 1)
     {
         CurrentHealth -= damage;
+        onHealthChanged?.Invoke(CurrentHealth);
         if (CurrentHealth <= 0)
         {
             Die();
@@ -45,16 +46,19 @@ public class HealthController : MonoBehaviour
     public void Heal(int amount = 1)
     {
         CurrentHealth += amount;
+        onHealthChanged?.Invoke(CurrentHealth);
     }
 
     public void ResetHealth()
     {
         CurrentHealth = maxHealth;
+        onHealthChanged?.Invoke(CurrentHealth);
     }
 
     public void Die()
     {
         //TODO: Implementar la muerte del personaje
         //TODO: Implementar SceneManager, UI de muerte
+        SceneManager.Instance.OnPlayerDeath();
     }
 }

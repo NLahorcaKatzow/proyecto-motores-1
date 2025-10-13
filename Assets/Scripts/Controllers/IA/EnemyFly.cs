@@ -140,6 +140,8 @@ public class EnemyFly : EnemyBase
         //TODO: Add die sound
         //TODO: send die event
         //TODO: destroy enemy
+        base.Die();
+        
     }
 
     private void OnTriggerEnter(Collider other)

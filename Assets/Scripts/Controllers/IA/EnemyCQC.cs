@@ -7,11 +7,13 @@ public class EnemyCQC : EnemyBase
 {
     private NavMeshAgent navMeshAgent;
     private bool canAttack = true;
+    private bool canUpdateMovement = true;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public float deltaMovimiento = 0.1f;
+    // Movement and behavior variables
     public Vector3 nextPosition;
     public float visualRange = 10f;
+    public float movementUpdateInterval = 0.5f; // Time between movement updates
+    public GameObject attackVFX;
     
     void Start()
     {
@@ -28,18 +30,39 @@ public class EnemyCQC : EnemyBase
         if(player == null) return;
 
         var rotVector = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
-        
         transform.LookAt(rotVector);
-        
-        
-        if(Vector3.Distance(player.transform.position, nextPosition) > deltaMovimiento)
+
+        // Update movement based on timer instead of distance
+        if (canUpdateMovement)
         {
-            transform.DOKill();
-            transform.DOMove(nextPosition, Vector3.Distance(player.transform.position, this.transform.position) / velocity).SetEase(Ease.Linear);
-            nextPosition = CalculateNextMovement();
+            UpdateMovementWithTimer();
         }
-        
+
         InAttackRange();
+    }
+    
+    private void UpdateMovementWithTimer()
+    {
+        // Calculate new movement position
+        nextPosition = CalculateNextMovement();
+        
+        // Stop current movement and start new one
+        transform.DOKill();
+        
+        // Calculate movement duration based on distance and velocity
+        float movementDuration = Vector3.Distance(transform.position, nextPosition) / velocity;
+        
+        // Move to new position
+        transform.DOMove(nextPosition, movementDuration).SetEase(Ease.Linear);
+        
+        // Start cooldown timer for next movement update
+        canUpdateMovement = false;
+        
+        // Use DOTweenTimer utility to handle the movement update timing
+        DOTweenTimer.CreateTimer(movementUpdateInterval, () =>
+        {
+            canUpdateMovement = true;
+        });
     }
     
     public Vector3 CalculateNextMovement()
@@ -89,6 +112,8 @@ public class EnemyCQC : EnemyBase
         //TODO: Add die sound
         //TODO: send die event
         //TODO: destroy enemy
+        base.Die();
+        
     }
     private void AttackPlayerWithCooldown()
     {
@@ -96,7 +121,11 @@ public class EnemyCQC : EnemyBase
         
         // Perform the attack
         AttackPlayer();
-        
+        if (attackVFX != null)
+        {
+            attackVFX.SetActive(true);
+            AnimateAttackVFX();
+        }
         // Start cooldown
         canAttack = false;
         
@@ -104,6 +133,37 @@ public class EnemyCQC : EnemyBase
         DOTweenTimer.CreateTimer(attackCooldown, () =>
         {
             canAttack = true;
+        });
+    }
+    
+    /// <summary>
+    /// Anima el VFX de ataque con rotaci�n de 360 grados y escala descendente
+    /// La duraci�n coincide con el cooldown del ataque
+    /// </summary>
+    private void AnimateAttackVFX()
+    {
+        if (attackVFX == null) return;
+        
+        // Calcular duraci�n basada en el attack rate (cooldown)
+        float animationDuration = 1/attackCooldown;
+        
+        // Resetear escala y rotaci�n inicial
+        attackVFX.transform.localScale = Vector3.one;
+        attackVFX.transform.localRotation = Quaternion.Euler(0,0,0);
+        
+        // Crear secuencia de animaciones
+        Sequence vfxSequence = DOTween.Sequence();
+        
+        // Rotaci�n de 360 grados alrededor del eje Y (padre)
+        vfxSequence.Join(attackVFX.transform.DOLocalRotate(new Vector3(0, 360, 0), animationDuration, RotateMode.FastBeyond360));
+        
+        // Escala descendente hasta 0
+        vfxSequence.Join(attackVFX.transform.DOScale(Vector3.zero, animationDuration).SetEase(Ease.InCubic));
+        
+        // Al completar, desactivar el VFX
+        vfxSequence.OnComplete(() =>
+        {
+            attackVFX.SetActive(false);
         });
     }
     

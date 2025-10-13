@@ -275,7 +275,7 @@ public class SceneManager : MonoBehaviour
     private void TransitionToLevel(int levelIndex)
     {
         isTransitioning = true;
-        
+        if(HealthController.Instance != null) HealthController.Instance.ResetHealth();
         if (debugMode)
             Debug.Log($"Transitioning to level {levelIndex}: {levelScenes[levelIndex]}");
         
