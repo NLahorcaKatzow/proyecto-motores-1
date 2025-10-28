@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9d453db452688144690860c6fc1d55a0
+guid: c3e5c2fcf9ce33c41b136323221f71a4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,33 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -149,23 +123,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: puerta_0
+      name: robot_tutorial_0
       rect:
         serializedVersion: 2
-        x: 35
-        y: 63
-        width: 594
-        height: 1066
+        x: 371
+        y: 219
+        width: 1053
+        height: 974
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 13, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74d43f5889f1808439c4234e611b133d
-      internalID: -426312910
+      spriteID: 8641fbd17581ce546bcf4d6fccf7be73
+      internalID: 768069421
       vertices: []
       indices: 
       edges: []
@@ -174,7 +148,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: da11b1eb52db20e4e963bab8add45c0c
+    spriteID: a02773c136fc51a4c9369dedd19b03fe
     internalID: 0
     vertices: []
     indices: 
@@ -184,7 +158,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      puerta_0: -426312910
+      robot_tutorial_0: 768069421
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
