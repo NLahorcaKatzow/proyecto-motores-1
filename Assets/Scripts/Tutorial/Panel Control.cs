@@ -7,7 +7,7 @@ public class PanelControl : MonoBehaviour
     public Button skipTutorial; 
     
 
-    void CerrarTutorial()
+    public void CerrarTutorial()
     {
         tutorial.SetActive(false);
     }

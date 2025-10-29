@@ -1,14 +1,15 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
     private Dictionary <int, string> dialogos = new Dictionary <int, string>();
     private int dialogoActual = 1;
-    TextMeshProUGUI Texto1;
+    public TextMeshProUGUI Texto1;
     public GameObject Tutorial; 
-    public GameObject Continuar;
+    public Button Continuar;
 
     private void Awake()
     {
@@ -30,14 +31,12 @@ public class UIController : MonoBehaviour
         {
             Debug.Log("Fin del diálogo");
             return;
+            
         }
         dialogoActual++;
 
     }
      
-   void Continuar()
-    {
-        continuar.OnClick.Add(dialogoActual++);
-    }
+   
     
 }
