@@ -888,7 +888,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2073851308}
+      - m_Target: {fileID: 315585707}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: LeerDialogo
         m_Mode: 1

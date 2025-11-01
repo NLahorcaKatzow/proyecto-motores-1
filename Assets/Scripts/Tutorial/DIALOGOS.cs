@@ -11,6 +11,10 @@ public class UIController : MonoBehaviour
     public GameObject Tutorial; 
     public Button Continuar;
 
+    private void Start()
+    {
+        Texto1.text = dialogos[dialogoActual];
+    }
     private void Awake()
     {
         dialogos.Add(1, "¡Hola! Bienvenido al planeta SR1078. Yo soy tu Asistente de Misión Personal, o AMP. Voy a estar guiándote en esta misión.");
