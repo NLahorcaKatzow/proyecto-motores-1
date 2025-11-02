@@ -679,10 +679,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1762930122211282009, guid: 6bcc9970b245a0541a2474ac2abc775e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2385546107477344311, guid: 6bcc9970b245a0541a2474ac2abc775e, type: 3}
       propertyPath: m_Name
       value: EnemyFly
@@ -740,6 +736,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4836510917656522902, guid: 5f3ef59a72350f14298a12eeef9b27cc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5321559537742159770, guid: 5f3ef59a72350f14298a12eeef9b27cc, type: 3}
       propertyPath: m_Name
       value: EnemyCQC
