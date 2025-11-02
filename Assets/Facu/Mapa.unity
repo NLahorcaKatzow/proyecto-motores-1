@@ -18382,6 +18382,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e0f5a1070200f419ea0562d1a364e0, type: 3}
+--- !u!114 &1344215880 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6421751782809586582, guid: 34e0f5a1070200f419ea0562d1a364e0, type: 3}
+  m_PrefabInstance: {fileID: 1344215879}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515073ec0ececd44599883275d6a6223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1348372341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20209,7 +20220,7 @@ PrefabInstance:
     - target: {fileID: 6867725367773492964, guid: cba9567bcae575342aaec9fac5b919e1, type: 3}
       propertyPath: magnaController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1344215880}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
