@@ -96455,6 +96455,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5887324132326129152, guid: 8e68ecd146e9be04c9f7c73383e61f0c, type: 3}
+      propertyPath: Target.TrackingTarget
+      value: 
+      objectReference: {fileID: 370539605}
     - target: {fileID: 8817775436178318931, guid: 8e68ecd146e9be04c9f7c73383e61f0c, type: 3}
       propertyPath: m_Name
       value: FreeLook Camera
