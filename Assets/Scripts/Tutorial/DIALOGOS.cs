@@ -42,7 +42,7 @@ public class UIController : MonoBehaviour
 
     }
     
-    OnDisable()
+    private void OnDisable()
     {
         SceneManager.Instance.LoadNextLevel();
     }
