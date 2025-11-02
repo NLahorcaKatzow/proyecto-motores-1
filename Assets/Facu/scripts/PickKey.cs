@@ -9,6 +9,8 @@ public class PickKey : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject); // destruye el objeto que tiene este script
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }

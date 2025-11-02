@@ -162,6 +162,9 @@ public class SceneManager : MonoBehaviour
                     if (debugMode)
                         Debug.Log("Death UI fully visible");
                 });
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
     
