@@ -8,12 +8,13 @@ public class EnemyCQC : EnemyBase
     private NavMeshAgent navMeshAgent;
     private bool canAttack = true;
     private bool canUpdateMovement = true;
-    
+    private Animator animator;
     // Movement and behavior variables
     public Vector3 nextPosition;
     public float visualRange = 10f;
     public float movementUpdateInterval = 0.5f; // Time between movement updates
     public GameObject attackVFX;
+    private Sequence _attackSeq;
     
     void Start()
     {
@@ -21,6 +22,11 @@ public class EnemyCQC : EnemyBase
         if (navMeshAgent != null)
         {
             navMeshAgent.speed = velocity;
+        }
+        animator = GetComponentInChildren<Animator>();
+        if (animator != null ) 
+        {
+            Debug.LogError("no se encuentra");
         }
     }
 
@@ -98,6 +104,7 @@ public class EnemyCQC : EnemyBase
         if(Vector3.Distance(player.transform.position, this.transform.position) <= attackRange && canAttack)
         {
             AttackPlayerWithCooldown();
+            animator.SetTrigger("Attack");
         }
         if(Vector3.Distance(player.transform.position, this.transform.position) > visualRange)
         {
@@ -107,7 +114,7 @@ public class EnemyCQC : EnemyBase
     
     public override void Die()
     {
-        //TODO: Add die animation
+        animator.SetTrigger("Muerte");
         Debug.Log("EnemyCQC died");
         //TODO: Add die sound
         //TODO: send die event
@@ -123,8 +130,10 @@ public class EnemyCQC : EnemyBase
         AttackPlayer();
         if (attackVFX != null)
         {
+            animator.SetTrigger("Attack");
             attackVFX.SetActive(true);
             AnimateAttackVFX();
+           
         }
         // Start cooldown
         canAttack = false;
@@ -135,39 +144,57 @@ public class EnemyCQC : EnemyBase
             canAttack = true;
         });
     }
-    
+
     /// <summary>
     /// Anima el VFX de ataque con rotaci�n de 360 grados y escala descendente
     /// La duraci�n coincide con el cooldown del ataque
     /// </summary>
-    private void AnimateAttackVFX()
+    private void AnimateAttackVFX(float startDelay = 10f)
     {
+        
         if (attackVFX == null) return;
-        
-        // Calcular duraci�n basada en el attack rate (cooldown)
-        float animationDuration = 1/attackCooldown;
-        
-        // Resetear escala y rotaci�n inicial
+
+        // Si hay una animación anterior, la matamos para reiniciar limpio
+        _attackSeq?.Kill();
+
+        // Asegurar estado inicial
+        attackVFX.SetActive(true);
         attackVFX.transform.localScale = Vector3.one;
-        attackVFX.transform.localRotation = Quaternion.Euler(0,0,0);
-        
-        // Crear secuencia de animaciones
-        Sequence vfxSequence = DOTween.Sequence();
-        
-        // Rotaci�n de 360 grados alrededor del eje Y (padre)
-        vfxSequence.Join(attackVFX.transform.DOLocalRotate(new Vector3(0, 360, 0), animationDuration, RotateMode.FastBeyond360));
-        
-        // Escala descendente hasta 0
-        vfxSequence.Join(attackVFX.transform.DOScale(Vector3.zero, animationDuration).SetEase(Ease.InCubic));
-        
+        attackVFX.transform.localRotation = Quaternion.identity;
+
+        // Duración en segundos (cuidamos división por cero)
+        float animationDuration = 1f / Mathf.Max(attackCooldown, 0.0001f);
+
+        // Crear secuencia con delay al inicio
+        _attackSeq = DOTween.Sequence()
+            .SetDelay(startDelay)            // ⬅️ delay antes de todo
+            .SetAutoKill(true)               // se destruye al terminar
+            .SetLink(attackVFX);             // si el GO se destruye, mata el tween
+
+        // Rotación Y 360° (local) en la misma duración
+        _attackSeq.Join(
+            attackVFX.transform.DOLocalRotate(
+                new Vector3(0f, 360f, 0f),
+                animationDuration,
+                RotateMode.FastBeyond360
+            )
+        );
+
+        // Escala a 0 con ease
+        _attackSeq.Join(
+            attackVFX.transform.DOScale(Vector3.zero, animationDuration)
+                .SetEase(Ease.InCubic)
+        );
+
         // Al completar, desactivar el VFX
-        vfxSequence.OnComplete(() =>
-        {
-            attackVFX.SetActive(false);
-        });
+        _attackSeq.OnComplete(() => attackVFX.SetActive(false));
+
+        // Opcional: reproducir explícitamente
+        _attackSeq.Play();
     }
-    
-    private void OnDrawGizmos()
+
+
+private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(nextPosition, 0.1f);

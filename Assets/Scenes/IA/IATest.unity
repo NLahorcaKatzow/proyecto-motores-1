@@ -467,6 +467,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2883512706564072540, guid: 34e0f5a1070200f419ea0562d1a364e0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -29.45935
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883512706564072540, guid: 34e0f5a1070200f419ea0562d1a364e0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -32.590027
+      objectReference: {fileID: 0}
     - target: {fileID: 5367364617996608392, guid: 34e0f5a1070200f419ea0562d1a364e0, type: 3}
       propertyPath: m_Name
       value: CanvasGUI
@@ -728,6 +736,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4836510917656522902, guid: 5f3ef59a72350f14298a12eeef9b27cc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5321559537742159770, guid: 5f3ef59a72350f14298a12eeef9b27cc, type: 3}
       propertyPath: m_Name
       value: EnemyCQC

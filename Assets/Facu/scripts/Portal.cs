@@ -10,6 +10,8 @@ public class Portal : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             SceneManager.Instance.LoadNextLevel();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }
