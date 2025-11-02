@@ -10,7 +10,7 @@ public class EnemyFly : EnemyBase
     private NavMeshAgent navMeshAgent;
     private bool canAttack = true;
     private bool canUpdateMovement = true;
-
+    private Animator animator ;
     // Movement and behavior variables
     public Vector3 nextPosition;
     public float visualRange = 10f;
@@ -28,6 +28,11 @@ public class EnemyFly : EnemyBase
         if (navMeshAgent != null)
         {
             navMeshAgent.speed = velocity;
+        }
+        animator = GetComponentInChildren<Animator>();
+        if(animator != null )
+        {
+            Debug.LogError("No se encuentra");
         }
     }
 
@@ -125,6 +130,7 @@ public class EnemyFly : EnemyBase
     {
         if (Vector3.Distance(player.transform.position, this.transform.position) <= attackRange && canAttack)
         {
+            
             ShootProjectileWithCooldown();
         }
         if (Vector3.Distance(player.transform.position, this.transform.position) > visualRange)
@@ -155,7 +161,7 @@ public class EnemyFly : EnemyBase
     private void ShootProjectileWithCooldown()
     {
         if (!canAttack) return;
-
+        
         // Shoot projectile
         ShootProjectile();
 
