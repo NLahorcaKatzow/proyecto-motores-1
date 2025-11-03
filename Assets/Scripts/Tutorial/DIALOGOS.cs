@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    private Dictionary <int, string> dialogos = new Dictionary <int, string>();
+    private Dictionary<int, string> dialogos = new Dictionary<int, string>();
     private int dialogoActual = 1;
     public TextMeshProUGUI Texto1;
-    public GameObject Tutorial; 
+    public GameObject Tutorial;
     public Button Continuar;
 
     private void Start()
@@ -17,30 +17,33 @@ public class UIController : MonoBehaviour
     }
     private void Awake()
     {
-        dialogos.Add(1, "¡Hola! Bienvenido al planeta SR1078. Yo soy tu Asistente de Misión Personal, o AMP. Voy a estar guiándote en esta misión.");
+        dialogos.Add(1, "ï¿½Hola! Bienvenido al planeta SR1078. Yo soy tu Asistente de Misiï¿½n Personal, o AMP. Voy a estar guiï¿½ndote en esta misiï¿½n.");
         dialogos.Add(2, "Dado el estado actual del planeta Tierra, nuestro equipo se dedica a estudiar potenciales planetas donde la humanidad pueda vivir.");
-        dialogos.Add(3, "Para ello enviamos al High Operating Pathfinder Entity, un satélite especializado en recolectar información. Lamentablemente no volvió en el tiempo previsto.");
-        dialogos.Add(4, "Tu misión es encontrar al satélite perdido H.O.P.E. para que podamos acceder a toda la información que estuvo recolectando.");
-        dialogos.Add(5, "Un par de consejos antes de que empieces con tu búsqueda. Usa las flechas (o las letras AWSD) de tu panel de control para moverte por el espacio.");
+        dialogos.Add(3, "Para ello enviamos al High Operating Pathfinder Entity, un satï¿½lite especializado en recolectar informaciï¿½n. Lamentablemente no volviï¿½ en el tiempo previsto.");
+        dialogos.Add(4, "Tu misiï¿½n es encontrar al satï¿½lite perdido H.O.P.E. para que podamos acceder a toda la informaciï¿½n que estuvo recolectando.");
+        dialogos.Add(5, "Un par de consejos antes de que empieces con tu bï¿½squeda. Usa las flechas (o las letras AWSD) de tu panel de control para moverte por el espacio.");
         dialogos.Add(6, "Usa la barra espaciadora para saltar o esquivar.");
         dialogos.Add(7, "Puede que encuentres criaturas nativas del planeta. En el caso de que te ataquen, hemos instalado un equipo de defensa que puedes activar con el click izquierdo.");
-        dialogos.Add(8, "Pero ten cuidado, solo tienes 3 vidas. Solo recolectando la energía de las criaturas que derrotes podrás recuperar las vidas perdidas.");
-        dialogos.Add(9, "Espero haber sido de ayuda. Ya puedes empezar con tu misión. El destino de la humanidad está en tus manos.");
+        dialogos.Add(8, "Pero ten cuidado, solo tienes 3 vidas. Solo recolectando la energï¿½a de las criaturas que derrotes podrï¿½s recuperar las vidas perdidas.");
+        dialogos.Add(9, "Espero haber sido de ayuda. Ya puedes empezar con tu misiï¿½n. El destino de la humanidad estï¿½ en tus manos.");
 
     }
-   public void LeerDialogo()
+    public void LeerDialogo()
     {
         Texto1.text = dialogos[dialogoActual];
-        if (dialogoActual==9)
+        if (dialogoActual == dialogos.Count)
         {
-            Debug.Log("Fin del diálogo");
+            Debug.Log("Fin del diÃ¡logo");
+            SceneManager.Instance.LoadNextLevel();
             return;
-            
+
         }
         dialogoActual++;
 
     }
-     
-   
     
+    private void OnDisable()
+    {
+        SceneManager.Instance.LoadNextLevel();
+    }
 }
