@@ -49,7 +49,7 @@ public class CharacterCombatNew : MonoBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(attackDamage, this.transform.position);
-cha                magnaController.AddMana(33);
+                magnaController.AddMana(33);
             }
         }
     }

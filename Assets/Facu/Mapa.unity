@@ -9481,6 +9481,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &724312571 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5052831192868074418, guid: cba9567bcae575342aaec9fac5b919e1, type: 3}
+  m_PrefabInstance: {fileID: 1453733968}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53bf105e9ab049a42a7490c0c5689802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &727933173 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7143914106880597813, guid: 997a19d77c58e3c4e9c0a015394970f1, type: 3}
@@ -16948,6 +16959,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 212368ab19d8225429a208adc2442249, type: 3}
+--- !u!114 &1238249029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6867725367773492964, guid: cba9567bcae575342aaec9fac5b919e1, type: 3}
+  m_PrefabInstance: {fileID: 1453733968}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfcad84d082a3547bc2b0905bad8a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1239800496 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6846305681386609905, guid: 11aa281cc23caa147bfa0d4108fc202d, type: 3}
@@ -18377,6 +18399,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasGUI
       objectReference: {fileID: 0}
+    - target: {fileID: 6485392009445787003, guid: 34e0f5a1070200f419ea0562d1a364e0, type: 3}
+      propertyPath: characterCombat
+      value: 
+      objectReference: {fileID: 1238249029}
+    - target: {fileID: 6485392009445787003, guid: 34e0f5a1070200f419ea0562d1a364e0, type: 3}
+      propertyPath: characterController
+      value: 
+      objectReference: {fileID: 1660376729}
+    - target: {fileID: 6485392009445787003, guid: 34e0f5a1070200f419ea0562d1a364e0, type: 3}
+      propertyPath: characterAnimationController
+      value: 
+      objectReference: {fileID: 724312571}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22665,6 +22699,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1098356319660623221, guid: cba9567bcae575342aaec9fac5b919e1, type: 3}
   m_PrefabInstance: {fileID: 1453733968}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1660376729 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8477847279132359714, guid: cba9567bcae575342aaec9fac5b919e1, type: 3}
+  m_PrefabInstance: {fileID: 1453733968}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7deb52348dddc1c41ad0cd6d704b1459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1661683243 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7283265068500202950, guid: 71986e519c316bc43badc381272cd9e9, type: 3}
