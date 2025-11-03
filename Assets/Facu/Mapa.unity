@@ -16970,6 +16970,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdfcad84d082a3547bc2b0905bad8a4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1238249030 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9033190225145428212, guid: cba9567bcae575342aaec9fac5b919e1, type: 3}
+  m_PrefabInstance: {fileID: 1453733968}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b544845e5de6fd43a11988cff209658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1239800496 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6846305681386609905, guid: 11aa281cc23caa147bfa0d4108fc202d, type: 3}
@@ -18407,6 +18418,10 @@ PrefabInstance:
       propertyPath: characterController
       value: 
       objectReference: {fileID: 1660376729}
+    - target: {fileID: 6485392009445787003, guid: 34e0f5a1070200f419ea0562d1a364e0, type: 3}
+      propertyPath: characterRotationController
+      value: 
+      objectReference: {fileID: 1238249030}
     - target: {fileID: 6485392009445787003, guid: 34e0f5a1070200f419ea0562d1a364e0, type: 3}
       propertyPath: characterAnimationController
       value: 
